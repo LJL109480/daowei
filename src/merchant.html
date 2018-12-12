@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/merchant.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <title>到位</title>
+</head>
+<body>
+<header id="first_header">
+  <div class="header_service">
+    <ul class="service_list clearfix">
+      <li class="list_city">
+        <img src="./images/citypoint.png" alt="">
+        <span>北京</span>
+        <span class="qiehuan">[切换城市]</span>
+      </li>
+      <div class="list_right">
+        <li class="list_guide">
+          <a href="javascript:;">首页</a>
+        </li>
+        <li class="list_guide">
+          <a href="javascript:;">关于我们</a>
+        </li>
+        <li class="list_guide cn">
+          <a  class="cn" href="./merchant.html">服务商</a>
+        </li>
+        <li class="list_guide">
+          <a href="javascript:;">商家入驻</a>
+        </li>
+        <li class="list_guide">
+          <a href="javascript:;">商家登录</a>
+        </li>
+        <li class="list_guide list_gui">
+          <a href="javascript:;">到位APP</a>
+        </li>
+      </div>
+
+      <div class="dimensional">
+        <img src="./images/2.png" alt="">
+      </div>
+      <div class="triangle"></div>
+    </ul>
+
+  </div>
+  <div class="header_search">
+    <div class="search_serve clearfix">
+      <h1 class="logo">
+        <img src="./images/logo.png" alt="">
+      </h1>
+      <div class="search_box">
+        <img src="./images/search2-2fb94833aa.png" alt="">
+        <input type="text" placeholder="输入关键词搜索商家、服务">
+        <div class="sousuo">搜索服务</div>
+      </div>
+    </div>
+  </div>
+</header>
+<section id="section_merchant">
+  <div class="merchant_content">
+    <div class="merchant_poster">
+      <div class="poster_top">
+        <img src="./images/tuijianfuwushang_03.jpg" alt="">
+      </div>
+      <div class="poster_bottom">
+        <img src="./images/2.png" alt="">
+      </div>
+    </div>
+    <h2 class="merchant_carrier">服务商</h2>
+    <div class="carrier"></div>
+  </div>
+</section>
+<div class="hotCity">
+  <div class="hotCity_service">
+    <h2>到位<a>服务</a>保障</h2>
+    <div class="safeguard">到位平台担保交易安全，交易未成功100%退款</div>
+  </div>
+  <div class="safety">
+    <div>
+      <img src="./images/cae45612b8aae577d8bd73338e2fc02c.png" alt="">
+      优选服务
+    </div>
+    <div>
+      <img src="./images/cae45612b8aae577d8bd73338e2fc02c.png" alt="">
+      全程保障
+    </div>
+    <div>
+      <img src="./images/cae45612b8aae577d8bd73338e2fc02c.png" alt="">
+      安全无忧
+    </div>
+  </div>
+</div>
+<footer class="footer"></footer>
+<div class="copyright_z">
+  <div class="copyright">
+    ©2015&nbsp;版权所有&nbsp;&nbsp;到位&nbsp;daoway.com&nbsp;京ICP备15001471号-1&nbsp;&nbsp;北京邻家科技有限公司
+  </div>
+</div>
+</body>
+<script id="merchant" type="text/html">
+<ul class="clearfix">
+  {{each data as value i}}
+  <li class="merchant_list">
+    <a href="">
+    <img src={{value.imgUrl}} alt="">
+    <div class="merchant_introduce">
+      <img src="./images/home1.png" alt="">
+      <span>{{value.title}}</span>
+    </div>
+    <div class="merchant_production">
+      <div class="production">已接单{{value.orderCount}}单</div>
+      <div class="popularity">好评{{value.positiveRate}}</div>
+    </div>
+    </a>
+  </li>
+  {{/each}}
+</ul>
+</script>
+<script id="hotCity" type="text/html">
+  <dl class="juzhong clearfix">
+    <dt class="remen">热门城市</dt>
+    <dd class="chengshi">
+      {{each data as value i}}
+      <a href="">{{value}}</a>
+      {{/each}}
+    </dd>
+  </dl>
+</script>
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/template.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $.get('http://localhost:3000/service', function (data) {
+      const result = {data};
+      const html = template('merchant', result)
+      $('.carrier').append(html)
+    })
+    $.get('http://localhost:3000/hotCity', function (data) {
+      const result = {data};
+      console.log(result)
+      const html = template('hotCity', result)
+      $('.footer').append(html);
+
+    })
+  })
+</script>
+</html>

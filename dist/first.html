@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Title</title><link rel="stylesheet" href="./css/first.css"><link rel="stylesheet" href="./css/animate.min.css"><link rel="stylesheet" href="./css/reset.css"></head><body><div id="all"><header id="first_header"><div class="header_service"><ul class="service_list clearfix"><li class="list_city"><img src="./images/citypoint.png" alt=""> <span>北京</span> <span class="qiehuan">[切换城市]</span></li><div class="list_right"><li class="list_guide"><a href="javascript:;">首页</a></li><li class="list_guide"><a href="javascript:;">关于我们</a></li><li class="list_guide"><a href="./merchant.html">服务商</a></li><li class="list_guide"><a href="javascript:;">商家入驻</a></li><li class="list_guide"><a href="javascript:;">商家登录</a></li><li class="list_guide list_gui"><a href="javascript:;">到位APP</a></li></div><div class="dimensional"><img src="./images/2.png" alt=""></div><div class="triangle"></div></ul></div><div class="header_search"><div class="search_serve clearfix"><h1 class="logo"><img src="./images/logo.png" alt=""></h1><div class="search_box"><img src="./images/search2-2fb94833aa.png" alt=""> <input type="text" placeholder="输入关键词搜索商家、服务"><div class="sousuo">搜索服务</div></div></div></div></header><div id="section_content"><div class="poster"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><img src="./images/banner1.jpg" alt=""></div><div class="swiper-slide"><img src="./images/banner2.jpg" alt=""></div></div><div class="swiper-pagination"></div></div></div><ul class="service_class"><li><span>家庭保洁</span> <span class="span_right">></span><ul class="clean_class"></ul></li><li><span>上门按摩</span> <span class="span_right">></span></li><li><span>上门维修</span> <span class="span_right">></span></li><li><span>家电清洗</span> <span class="span_right">></span></li><li><span>衣物洗护</span> <span class="span_right">></span></li><li><span>搬家速运</span> <span class="span_right">></span></li><li><span>美容美妆</span> <span class="span_right">></span></li><li><span>上门安装</span> <span class="span_right">></span></li><li><span>上门医护</span> <span class="span_right">></span></li><li><span>保姆月嫂</span> <span class="span_right">></span></li></ul></div><div class="content"></div><div class="hotCity"><div class="hotCity_service"><h2>到位<a>服务</a>保障</h2><div class="safeguard">到位平台担保交易安全，交易未成功100%退款</div></div><div class="safety"><div><img src="./images/cae45612b8aae577d8bd73338e2fc02c.png" alt=""> 优选服务</div><div><img src="./images/cae45612b8aae577d8bd73338e2fc02c.png" alt=""> 全程保障</div><div><img src="./images/cae45612b8aae577d8bd73338e2fc02c.png" alt=""> 安全无忧</div></div></div><footer class="footer"></footer><div class="author"><h2 class="partner">合作伙伴</h2><div class="merchant"><ul class="merchant1 clearfix"><li><img src="./images/partner01.jpg" alt=""></li><li><img src="./images/partner02.jpg" alt=""></li><li><img src="./images/partner03.png" alt=""></li><li><img src="./images/partner04.jpg" alt=""></li><li><img src="./images/partner05.jpg" alt=""></li><li><img src="./images/partner06.png" alt=""></li><li><img src="./images/partner07.jpg" alt=""></li><li><img src="./images/partner08.jpg" alt=""></li><li><img src="./images/partner09.jpg" alt=""></li></ul><ul class="merchant2 merchant1 clearfix"><li><img src="./images/partner10.jpg" alt=""></li><li><img src="./images/partner11.jpg" alt=""></li><li><img src="./images/partner12.jpg" alt=""></li><li><img src="./images/partner13.jpg" alt=""></li><li><img src="./images/partner14.jpg" alt=""></li><li><img src="./images/partner15.jpg" alt=""></li><li><img src="./images/partner16.jpg" alt=""></li><li><img src="./images/partner17.jpg" alt=""></li><li><img src="./images/partner18.jpg" alt=""></li></ul></div><div class="copyright">©2015&nbsp;版权所有&nbsp;&nbsp;到位&nbsp;daoway.com&nbsp;京ICP备15001471号-1&nbsp;&nbsp;北京邻家科技有限公司</div></div></div></body><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.js"></script><script src="./js/jquery-1.11.3.min.js"></script><script src="./js/template.js"></script><script id="test" type="text/html">{{each data as value i}}
+ <div class="caption_all">
+  <div class="caption">{{value.serviceIndex}}</div>
+    <span class="serviceType">
+ {{each value.serviceType as value i}}
+    <a class="as">{{value}}</a>
+  {{/each}}
+  <span class="more">更多服务&nbsp;&nbsp;></span>
+ </span>
+ <div class="line"></div>
+
+    <div class="shopList clearfix">
+      {{each value.shopList as value i}}
+      <div class="shopList_content ">
+        <img src={{value.imgUrl}} alt="">
+        <div class="serviceName">{{value.serviceName}}</div>
+        <span class="description">{{value.description}}</span>
+        <div class="price clearfix">
+          <div class="price_type">{{value.price}}元/小时</div>
+          <div class="detail">查看详情</div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+   <div class="elseList">
+     {{each value.elseList as value i}}
+     <span>{{value}}</span>
+     {{/each}}
+   </div>
+ </div>
+  {{/each}}</script><script id="hotCity" type="text/html"><dl class="juzhong clearfix">
+    <dt class="remen">热门城市</dt>
+    <dd class="chengshi">
+      {{each data as value i}}
+      <a href="">{{value}}</a>
+      {{/each}}
+    </dd>
+  </dl></script><script type="text/javascript">$(function () {
+  var mySwiper = new Swiper ('.swiper-container', {
+    loop: true, //
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  })
+    $.get('http://localhost:3000/index', function (data) {
+      let result = {data}
+      const html = template('test', result)
+      $('.content').append(html)
+    })
+  $.get('http://localhost:3000/hotCity', function (data) {
+    const result = {data};
+    console.log(result)
+    const html = template('hotCity', result)
+    $('.footer').append(html);
+
+  })
+})</script></html>
